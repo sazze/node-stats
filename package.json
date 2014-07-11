@@ -1,0 +1,46 @@
+{
+  "name": "sz-stats",
+  "version": "1.0.0",
+  "description": "A module for tracking runnig stats",
+  "main": "./stats.js",
+  "homepage": "https://gitlab.sazze.com/nodejs/stats",
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": ">=0.8.x"
+  },
+  "registry": "http://npm.sazze.com",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.sazze.com/nodejs/stats.git"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "chai": "^1.9.1"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://gitlab.sazze.com/nodejs/stats/issues"
+  },
+  "author": {
+    "name": "Craig Thayer",
+    "email": "cthayer@sazze.com"
+  },
+  "license": "Copyright 2014 by Sazze, Inc.  All rights reserved.",
+  "contributors": [
+    {
+      "name": "Craig Thayer",
+      "email": "cthayer@sazze.com"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "Craig Thayer",
+      "email": "cthayer@sazze.com"
+    }
+  ]
+}

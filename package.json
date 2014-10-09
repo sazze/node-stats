@@ -1,6 +1,6 @@
 {
   "name": "sz-stats",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A module for tracking runnig stats",
   "main": "./stats.js",
   "homepage": "https://gitlab.sazze.com/nodejs/stats",
@@ -10,7 +10,9 @@
   "engines": {
     "node": ">=0.8.x"
   },
-  "registry": "http://npm.sazze.com",
+  "publishConfig": {
+    "registry": "http://npm.sazze.com/"
+  },
   "repository": {
     "type": "git",
     "url": "https://gitlab.sazze.com/nodejs/stats.git"

@@ -13,10 +13,22 @@ var defaultOptions = {
 };
 
 function Stats(opts) {
-  this.options = _.merge(defaultOptions, opts);
+  EventEmitter.call(this);
+
+  this.options = _.merge({}, defaultOptions, opts);
   this.clear();
 
-  this.on('newListener', this.enableEvents.bind(this));
+  this.on('newListener', function () {
+    if (EventEmitter.listenerCount(this, 'stats') > 0) {
+      this.enableEvents();
+    }
+  }.bind(this));
+
+  this.on('removeListener', function () {
+    if (EventEmitter.listenerCount(this, 'stats') < 1) {
+      this.disableEvents();
+    }
+  }.bind(this));
 }
 
 module.exports.Stats = Stats;
@@ -31,6 +43,16 @@ Stats.prototype.clear = function() {
   this.newVariance = 0;
   this.maximum = 0;
   this.minimum = 0;
+};
+
+Stats.prototype.load = function (state) {
+  _.forEach(this, function (val, name) {
+    if (!_.isNumber(val) || _.isUndefined(state[name]) || !_.isNumber(state[name])) {
+      return;
+    }
+
+    this[name] = state[name];
+  }, this);
 };
 
 Stats.prototype.mean = function(raw) {
@@ -72,6 +94,8 @@ Stats.prototype.push = function(x) {
     this.minimum = x;
     this.maximum = x;
 
+    this.emit('stats', this.allStats());
+
     return;
   }
 
@@ -87,7 +111,7 @@ Stats.prototype.push = function(x) {
 
   // send event
   if (this.options.sendEvents) {
-    this.emit('stats', this.allStats);
+    this.emit('stats', this.allStats());
   }
 };
 
@@ -96,7 +120,8 @@ Stats.prototype.allStats = function(raw) {
     min: this.min(raw),
     max: this.max(raw),
     mean: this.mean(raw),
-    sd: this.standardDeviation(raw)
+    sd: this.standardDeviation(raw),
+    variance: this.variance(raw)
   };
 };
 

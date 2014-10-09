@@ -15,7 +15,7 @@ var defaultOptions = {
 function Stats(opts) {
   EventEmitter.call(this);
 
-  this.options = _.merge(defaultOptions, opts);
+  this.options = _.merge({}, defaultOptions, opts);
   this.clear();
 
   this.on('newListener', function () {
@@ -43,6 +43,16 @@ Stats.prototype.clear = function() {
   this.newVariance = 0;
   this.maximum = 0;
   this.minimum = 0;
+};
+
+Stats.prototype.load = function (state) {
+  _.forEach(this, function (val, name) {
+    if (!_.isNumber(val) || _.isUndefined(state[name]) || !_.isNumber(state[name])) {
+      return;
+    }
+
+    this[name] = state[name];
+  }, this);
 };
 
 Stats.prototype.mean = function(raw) {

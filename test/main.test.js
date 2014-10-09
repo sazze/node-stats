@@ -45,4 +45,23 @@ describe('Test Running Stats', function () {
 
     done();
   });
+
+  it('should emit stats event', function (done) {
+    var data = testData[1];
+
+    stats = new Stats();
+
+    stats.once('stats', function (statsObj) {
+      expect(statsObj).to.be.an('object');
+      expect(statsObj).to.have.property('mean');
+      expect(statsObj).to.have.property('min');
+      expect(statsObj).to.have.property('max');
+      expect(statsObj).to.have.property('sd');
+      expect(statsObj).to.have.property('variance');
+
+      done();
+    });
+
+    stats.push(data.data[0]);
+  });
 });

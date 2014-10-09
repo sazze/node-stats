@@ -10,7 +10,9 @@
   "engines": {
     "node": ">=0.8.x"
   },
-  "registry": "http://npm.sazze.com",
+  "publishConfig": {
+    "registry": "http://npm.sazze.com/"
+  },
   "repository": {
     "type": "git",
     "url": "https://gitlab.sazze.com/nodejs/stats.git"

@@ -132,3 +132,7 @@ Stats.prototype.enableEvents = function () {
 Stats.prototype.disableEvents = function () {
   this.options.sendEvents = false;
 };
+
+Stats.prototype.toJSON = function () {
+  return _.pick(this, ['options', 'count', 'oldMean', 'newMean', 'oldVariance', 'newVariance', 'maximum', 'minimum']);
+};

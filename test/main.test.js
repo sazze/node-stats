@@ -65,7 +65,7 @@ describe('Test Running Stats', function () {
 
   it('should convert to/from JSON', function () {
     var data = testData[1];
-    var expectedJson = '{"domain":null,"_events":{},"_maxListeners":10,"options":{"precision":3,"sendEvents":false},"count":5,"oldMean":3,"newMean":3,"oldVariance":10,"newVariance":10,"maximum":5,"minimum":1}';
+    var expectedJson = '{"options":{"precision":3,"sendEvents":false},"count":5,"oldMean":3,"newMean":3,"oldVariance":10,"newVariance":10,"maximum":5,"minimum":1}';
 
     stats = new Stats();
 

@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var Stats = require('../stats').Stats;
+var Stats = require('../.').Stats;
 var _ = require('lodash');
 
 var testData = [

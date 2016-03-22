@@ -1,36 +1,42 @@
 {
-  "name": "sz-stats",
-  "version": "1.0.0",
+  "name": "@sazze/stats",
+  "version": "1.4.0",
   "description": "A module for tracking runnig stats",
-  "main": "./stats.js",
-  "homepage": "https://gitlab.sazze.com/nodejs/stats",
+  "main": "./index.js",
+  "homepage": "https://github.com/sazze/node-stats",
   "scripts": {
     "test": "make test"
   },
   "engines": {
     "node": ">=0.8.x"
   },
-  "registry": "http://npm.sazze.com",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.sazze.com/nodejs/stats.git"
+    "url": "https://github.com/sazze/node-stats.git"
   },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "moment": "^2.8.4"
   },
   "devDependencies": {
     "mocha": "^1.20.1",
     "chai": "^1.9.1"
   },
-  "keywords": [],
+  "keywords": [
+    "stats",
+    "live",
+    "update",
+    "running",
+    "statistics"
+  ],
   "bugs": {
-    "url": "https://gitlab.sazze.com/nodejs/stats/issues"
+    "url": "https://github.com/sazze/node-stats/issues"
   },
   "author": {
     "name": "Craig Thayer",
     "email": "cthayer@sazze.com"
   },
-  "license": "Copyright 2014 by Sazze, Inc.  All rights reserved.",
+  "license": "ISC",
   "contributors": [
     {
       "name": "Craig Thayer",
